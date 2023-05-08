@@ -74,8 +74,8 @@ The dataset `cooperation_pred_final.txt` was used alongside the phylognetic tree
 1. Methods for processing the data: Raw data
 
 2. Instrument- or software-specific information needed to interpret the data: 
-R v.4.0.5 https://www.r-project.org/
-CmdStanR https://mc-stan.org/cmdstanr/
+- R v.4.0.5 https://www.r-project.org/
+- CmdStanR https://mc-stan.org/cmdstanr/
 
 3. People involved with sample collection, processing, analysis and/or submission: Louis Bliard, Paul Dufour, Michael Griesser, Rita Covas
 
