@@ -63,6 +63,8 @@ This repository hosts data and R code for Bliard L., Dufour P., Griesser M, Cova
 - `estimate_predator_richness.R`
 - `analysis_script.R`
 
+Note that `output_ericson.nex` and `output_hackett.nex` are distributions of phylogenetic trees and are too large to be stored on GitHub, but they will present in the final reporsitory (e.g. on Zenodo or Dryad).
+
 2. Relationship between files, if important: 
 
 The dataset `predation_allometry.txt` and `distribution_overlap.txt` were used to estimate the average number of potential predators in sympatry with each focal species, using the R script `estimate_predator_richness.R`.
