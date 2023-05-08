@@ -122,5 +122,34 @@ The dataset `cooperation_pred_final.txt` was used alongside the phylognetic tree
 
 4. Missing data codes: NA
 
+### DATA-SPECIFIC INFORMATION FOR: `cooperation_pred_final.txt`
 
+1. Number of variables: 22
 
+2. Number of cases/rows: 2988
+
+3. Variable List: 
+- "tip_label" = species name.
+- "fam_sys_known50" = social system ("coop_families"=cooperative breeding species / "family"=family-living species / "no_fam"=non family living species).
+- "devo_mode" = developmental mode (altricial / precocial).
+- "region" = biogeographic realm.
+- "Prcp.Mean" = mean yearly precipitation (in mm).
+- "Temp.Mean" = mean yearly temperature (in Celsius).
+- "Prcp.P" = precipitation predictability during the whole year.
+- "Temp.P" = temperautre predictability during the whole year.
+- "Prcp.Var" = precipitation variance.
+- "Temp.Var" = temperature variance.
+- "Foraging" = foraging strategy.
+- "mass" =
+- "habitat" = habitat openess (0 = fully vegetated habitat / 100 = fully open habitat).
+- "average_predation_richness" = estimated average richness of potential predators across the distributional range of the species.
+- "total_predation_richness" = estimated total richness of potential predators across the distributional range of the species.
+- "latitude_mean" = mean latitude of the grid cells occupied by the focal species.
+- "latitude_med" = median latitude of the grid cells occupied by the focal species.
+- "fam_sys_known50" = social system ("coop_families"=cooperative breeding species / "family"=family-living species / "no_fam"=non family living species).
+- "cooperative_breeding" = whether the species is a cooperative breeder (0=no / 1=yes).
+- "phylo" = species name, matching the names in the phylogenetic tree files.
+- "comment.CB" = comment about the social system classification.
+- "mov_min" = migration status based on the minimum movement of the species (i.e, partial migrants would be considered migrants).
+
+4. Missing data codes: NA
