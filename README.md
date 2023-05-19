@@ -32,8 +32,6 @@ This repository hosts data and R code for Bliard L., Dufour P., Griesser M, Cova
 
 4. Geographic location of data collection: NA
 
-5. Information about funding sources that supported the collection of the data: RC was funded by FCT fellowship CEECIND/03451/2018. MG was supported by a Heisenberg Grant nr. GR 4650/2-1 by the German Research Foundation DFG.
-
 
 ## SHARING/ACCESS INFORMATION
 
