@@ -59,7 +59,7 @@ This repository hosts data and R code for Bliard L., Dufour P., Griesser M, Cova
 - `Prum_Jetz_Cooney_9993.tree`
 - `distribution_overlap.txt`
 - `predation_allometry.txt`
-- `cooperation_pred_final.txt`
+- `cooperation_pred.csv`
 - `estimate_predator_richness.R`
 - `analysis_script.R`
 
@@ -69,7 +69,7 @@ Note that `output_ericson.nex` and `output_hackett.nex` are distributions of phy
 
 The dataset `predation_allometry.txt` and `distribution_overlap.txt` were used to estimate the average number of potential predators in sympatry with each focal species, using the R script `estimate_predator_richness.R`.
 
-The dataset `cooperation_pred_final.txt` was used alongside the phylognetic trees `Prum_Jetz_Cooney_9993.tree`, `output_ericson.nex`, and `output_hackett.nex`, to perform the analyses and produce the figures present in the article, using the R script `analysis_script.R`.
+The dataset `cooperation_pred.csv` was used alongside the phylognetic trees `Prum_Jetz_Cooney_9993.tree`, `output_ericson.nex`, and `output_hackett.nex`, to perform the analyses and produce the figures present in the article, using the R script `analysis_script.R`.
 
 ## METHODOLOGICAL INFORMATION
  
@@ -122,9 +122,9 @@ The dataset `cooperation_pred_final.txt` was used alongside the phylognetic tree
 
 4. Missing data codes: NA
 
-### DATA-SPECIFIC INFORMATION FOR: `cooperation_pred_final.txt`
+### DATA-SPECIFIC INFORMATION FOR: `cooperation_pred.csv`
 
-1. Number of variables: 22
+1. Number of variables: 23
 
 2. Number of cases/rows: 2988
 
@@ -140,13 +140,13 @@ The dataset `cooperation_pred_final.txt` was used alongside the phylognetic tree
 - "Prcp.Var" = precipitation variance.
 - "Temp.Var" = temperature variance.
 - "Foraging" = foraging strategy.
-- "mass" =
+- "mass" = mass of the species (in grams)
 - "habitat" = habitat openess (0 = fully vegetated habitat / 100 = fully open habitat).
 - "average_predation_richness" = estimated average richness of potential predators across the distributional range of the species.
 - "total_predation_richness" = estimated total richness of potential predators across the distributional range of the species.
 - "latitude_mean" = mean latitude of the grid cells occupied by the focal species.
 - "latitude_med" = median latitude of the grid cells occupied by the focal species.
-- "fam_sys_known50" = social system ("coop_families"=cooperative breeding species / "family"=family-living species / "no_fam"=non family living species).
+- "coop" = social system ("coop_families"=cooperative breeding species / "family"=family-living species / "no_fam"=non family living species).
 - "cooperative_breeding" = whether the species is a cooperative breeder (0=no / 1=yes).
 - "phylo" = species name, matching the names in the phylogenetic tree files.
 - "comment.CB" = comment about the social system classification.
