@@ -41,11 +41,9 @@ This repository hosts data and R code for Bliard L., Dufour P., Griesser M, Cova
 
 3. Links to other publicly accessible locations of the data: None
 
-4. Links/relationships to ancillary data sets: https://doi.org/10.1371/journal.pbio.2000483
+4. Was data derived from another source? Some of the data came from https://doi.org/10.1371/journal.pbio.2000483
 
-5. Was data derived from another source? Some of the data came from https://doi.org/10.1371/journal.pbio.2000483
-
-6. Recommended citation for this dataset: Bliard L., Dufour P., Griesser M, Covas R. (XXXX). Family-living and cooperative breeding in birds are associated with the number of avian predators [Data set].
+5. Recommended citation for this dataset: Bliard L., Dufour P., Griesser M, Covas R. (XXXX). Family-living and cooperative breeding in birds are associated with the number of avian predators [Data set].
 
 
 
