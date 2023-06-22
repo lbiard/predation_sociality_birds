@@ -35,7 +35,7 @@ This repository hosts data and R code for Bliard L., Dufour P., Griesser M, Cova
 
 ## SHARING/ACCESS INFORMATION
 
-1. Licenses/restrictions placed on the data: CC-BY 4.0
+1. Licenses/restrictions placed on the data: CC0
 
 2. Links to publications that cite or use the data: ADD preprint / paper link
 
