@@ -88,7 +88,7 @@ m2 <- brm(
     scale(Prcp.Var) + scale(Temp.Var) +
     (1|gr(phylo, cov = phylo_mcct)), data = cooperation_pred, 
   family = cumulative("logit"), data2 = list(phylo_mcct = phylo_mcct),
-  warmup = 100, iter = 200, thin = 1, chains = 3, seed = 25, cores = 3,
+  warmup = 1000, iter = 2000, thin = 1, chains = 3, seed = 25, cores = 3,
   prior = c(
     set_prior("normal(0,2)", class = "b"),
     set_prior("normal(0,2)", class = "Intercept"),
