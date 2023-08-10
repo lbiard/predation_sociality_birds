@@ -48,6 +48,8 @@ cooperation_pred$phylo <- cooperation_pred$tip_label
 #### Drop the few species with unreliable data for social system ####
 #####################################################################
 
+# information on why it is unreliable in the column "comment.CB"
+
 cooperation_pred <- cooperation_pred[cooperation_pred$tip_label != "Melanodryas_vittata",]
 cooperation_pred <- cooperation_pred[cooperation_pred$tip_label != "Tangara_cyanoventris",]
 cooperation_pred <- cooperation_pred[cooperation_pred$tip_label != "Fulica_ardesiaca",]
@@ -65,6 +67,7 @@ cooperation_pred$log_mass <- log(cooperation_pred$mass)
 sd_logmass <- sd(cooperation_pred$log_mass)
 mean_logmass <- mean(cooperation_pred$log_mass)
 cooperation_pred$log_mass <- scale(cooperation_pred$log_mass)
+cooperation_pred$log_mass_squared <- (cooperation_pred$log_mass)^2
 
 sd_habitat <- sd(cooperation_pred$habitat)
 mean_habitat <- mean(cooperation_pred$habitat)
@@ -81,7 +84,7 @@ cooperation_pred$latitude_mean <- scale(cooperation_pred$latitude_mean)
 
 m2 <- brm(
   coop ~ average_predation_richness * habitat +
-    log_mass +
+    log_mass + log_mass_squared +
     latitude_mean +
     scale(Prcp.P) + scale(Temp.P) + 
     scale(Prcp.Mean) + scale(Temp.Mean) +
@@ -158,7 +161,7 @@ cooperation_pred$coopbis <- cooperation_pred$coopbis-1
 p <- ggplot(plot.dat, aes(x = inv_fun(x2.sim), y = bayes.c.eff.mean)) +
   geom_line(color = "black", alpha = 0.8, size = 2)+
   geom_ribbon(aes(ymin = bayes.c.eff.lower, ymax = bayes.c.eff.upper), fill = "black", alpha = 0.15)+
-  ggtitle("-1 SD")+
+  ggtitle("High vegetation cover")+
   xlab("Average predation richness")+
   ylab("")+
   scale_y_continuous(breaks = seq(0, 2, by = 1))+
@@ -227,7 +230,7 @@ cooperation_pred$coopbis <- cooperation_pred$coopbis-1
 q <- ggplot(plot.dat, aes(x = inv_fun(x2.sim), y = bayes.c.eff.mean)) +
   geom_line(color = "black", alpha = 0.8, size = 2)+
   geom_ribbon(aes(ymin = bayes.c.eff.lower, ymax = bayes.c.eff.upper), fill = "black", alpha = 0.15)+
-  ggtitle("+1 SD")+
+  ggtitle("Low vegetation cover")+
   xlab("Average predation richness")+
   ylab("")+
   scale_y_continuous(breaks = seq(0, 2, by = 1))+
@@ -296,6 +299,7 @@ cooperation_pred$log_mass <- log(cooperation_pred$mass)
 sd_logmass <- sd(cooperation_pred$log_mass)
 mean_logmass <- mean(cooperation_pred$log_mass)
 cooperation_pred$log_mass <- scale(cooperation_pred$log_mass)
+cooperation_pred$log_mass_squared <- (cooperation_pred$log_mass)^2
 
 sd_habitat <- sd(cooperation_pred$habitat)
 mean_habitat <- mean(cooperation_pred$habitat)
@@ -310,7 +314,7 @@ cooperation_pred$latitude_mean <- scale(cooperation_pred$latitude_mean)
 
 model_no_holarctic <- brm(
   coop ~ average_predation_richness * habitat +
-    log_mass +
+    log_mass + log_mass_squared +
     latitude_mean +
     scale(Prcp.P) + scale(Temp.P) + 
     scale(Prcp.Mean) + scale(Temp.Mean) +
