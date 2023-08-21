@@ -13,6 +13,7 @@ library(ape)
 library(phangorn)
 library(bayesplot)
 library(ggplot2)
+library(ggdist)
 library(grid)
 library(cmdstanr)
 library(patchwork)
@@ -252,6 +253,74 @@ q
 
 
 p + q
+
+
+#####################
+#### Forest Plot ####
+#####################
+
+
+df.posteriors <- dat_plot[,1:14]
+
+colnames(df.posteriors) <- c("Intercept 1",
+                             "Intercept 2",
+                             "Average predation richness",
+                             "Habitat openness",
+                             "Log body mass",
+                             "Log body mass ^2",
+                             "Absolute latitude",
+                             "Predictability precipitation",
+                             "Predictability temperature",
+                             "Mean precipitation",
+                             "Mean temperature",
+                             "Variance precipitation",
+                             "Variance temperature",
+                             "Average predation richness * Habitat openness")
+
+
+df.posteriors <- df.posteriors[,c(8,12,10,9,13,11,7,4,6,5,14,3,2,1)]
+
+# get summaries of posteriors
+df.summary <- data.frame(   parameter = colnames(df.posteriors)
+                          , mean = as.numeric(NA)
+                          , BCI50_upper = as.numeric(NA)
+                          , BCI50_lower = as.numeric(NA)
+                          , BCI95_upper = as.numeric(NA)
+                          , BCI95_lower = as.numeric(NA)
+                          , significant = as.logical(NA))
+
+for(i in 1:nrow(df.summary)){
+  df.summary$mean[i] <- mean(df.posteriors[,i])
+  df.summary$BCI50_upper[i] <- quantile(df.posteriors[,i], 0.75, na.rm = T)
+  df.summary$BCI50_lower[i] <- quantile(df.posteriors[,i], 0.25, na.rm = T)
+  df.summary$BCI95_upper[i] <- quantile(df.posteriors[,i], 0.975, na.rm = T)
+  df.summary$BCI95_lower[i] <- quantile(df.posteriors[,i], 0.025, na.rm = T)
+  df.summary$significant[i] <- ifelse(test = (df.summary$BCI95_lower[i]>0 & df.summary$BCI95_upper[i]>0) || (df.summary$BCI95_lower[i]<0 & df.summary$BCI95_upper[i]<0), yes = TRUE, no = FALSE)
+}
+
+df.posteriors.plot <- tidyr::gather(df.posteriors, parameter, sample_post, 1:14, factor_key=TRUE)
+
+# colT1 <- "cornflowerblue"
+# colT2 <- "orange"
+# colCov <- "seagreen4"
+# colPlot <- "black"
+
+ggplot()+
+  stat_halfeye(data = df.posteriors.plot, aes(x = sample_post, y = parameter), color = NA, alpha = 0.2, normalize="xy", scale=0.55)+
+  geom_point(data = df.summary, aes(x = mean, y = parameter), size = 2)+
+  geom_linerange(data = df.summary, aes(xmin = BCI95_lower, xmax = BCI95_upper, y = parameter), size=0.6, linetype="solid")+
+  geom_linerange(data = df.summary, aes(xmin = BCI50_lower, xmax = BCI50_upper, y = parameter), size=1.5, linetype="solid")+
+  geom_vline(xintercept = 0, linetype = "dashed", color = "black", size = 0.4) +
+  scale_x_continuous(breaks = c(-2,-1,0,1,2,3,4,5))+
+  coord_cartesian(xlim=c(-2.5,6), clip = "off")+
+  ylab("")+
+  xlab("")+
+  theme_minimal()+
+  theme(axis.line.y = element_blank()
+        , axis.ticks.y = element_blank()
+        , panel.grid.major = element_blank() 
+        , panel.grid.minor = element_blank()
+  )
 
 
 
