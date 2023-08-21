@@ -145,7 +145,7 @@ The dataset `cooperation_pred.csv` was used alongside the phylognetic trees `Pru
 - "coop" = social system ("coop_families"=cooperative breeding species / "family"=family-living species / "no_fam"=non family living species).
 - "cooperative_breeding" = whether the species is a cooperative breeder (0=no / 1=yes).
 - "phylo" = species name, matching the names in the phylogenetic tree files.
-- "comment.CB" = comment about the social system classification.
+- "comment.CB" = comment about the social system classification (4 species will be remoevd before analysis due to uncertain social system).
 - "mov_min" = migration status based on the minimum movement of the species (i.e, partial migrants would be considered migrants).
 
 4. Missing data codes: NA
