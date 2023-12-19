@@ -10,6 +10,7 @@ library(dplyr)
 library(ggplot2)
 library(grid)
 
+# change path to where the file is stored
 predation_allometry <- read.delim("~/My Drive/predation_cooperation/data/final_datasets/predation_allometry.txt")
 
 distribution_overlap <- read.delim("~/My Drive/predation_cooperation/data/final_datasets/distribution_overlap.txt")
@@ -58,18 +59,25 @@ predation_allometry$estimated_min_prey <- exp(fmin(predation_allometry$masslog))
 predation_allometry$estimated_max_prey <- exp(fmax(predation_allometry$masslog))
 
 
-
-
 #################################################################################################
 #### use predation allometry and distribution overlap to generate average predation richness ####
 #################################################################################################
 
 distribution_overlap <- distribution_overlap[,c(1:307)] # the five last columns are not needed for this step (latitude, and predation richness metrics that we are estimating in this script)
 
+##############################################################
+##### keep only predator that are bird specialists or not ####
+##############################################################
+
+# this will remove them from the estimate of richness
+#predation_allometry$estimated_min_prey[predation_allometry$freq.numbers == 2] <- 999999
+#predation_allometry$estimated_max_prey[predation_allometry$freq.numbers == 2] <- 999999
+
+##
 
 # this loop check if each species fall in the allometric prey range of each predator. If they don't, replace number of shared cell per 0 (i.e not a predator of the species)
 
-for (i in 1:dim(distribution_overlap)[1]) {          # loop through ech focal species
+for (i in 1:dim(distribution_overlap)[1]) {          # loop through each focal species
   for (j in 6:(dim(distribution_overlap)[2]-1)) {    # loop through each predator species
     
     if (distribution_overlap$mass[i] <= predation_allometry$estimated_min_prey[predation_allometry$jetz.name == colnames(distribution_overlap[j])]
@@ -93,6 +101,8 @@ for(i in 1:dim(distribution_overlap)[1]){
 
 distribution_overlap$average_predation_richness
 
+#distribution_overlap$average_predation_richness_specialist <- distribution_overlap$average_predation_richness
+
 
 # create new variable to store total predation richness
 distribution_overlap$total_predation_richness <- NA
@@ -103,4 +113,9 @@ for(i in 1:dim(distribution_overlap)[1]){
 }
 
 distribution_overlap$total_predation_richness
+
+#distribution_overlap$total_predation_richness_specialist <- distribution_overlap$total_predation_richness
+
+
+
 
