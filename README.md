@@ -118,7 +118,7 @@ The dataset `cooperation_pred.csv` was used alongside the phylognetic trees `Pru
 
 4. Missing data codes: NA
 
-### DATA-SPECIFIC INFORMATION FOR: `cooperation_pred.csv`
+### DATA-SPECIFIC INFORMATION FOR: `cooperation_pred.txt`
 
 1. Number of variables: 23
 
@@ -147,5 +147,7 @@ The dataset `cooperation_pred.csv` was used alongside the phylognetic trees `Pru
 - "phylo" = species name, matching the names in the phylogenetic tree files.
 - "comment.CB" = comment about the social system classification (4 species will be removed before analysis due to uncertain social system).
 - "mov_min" = migration status based on the minimum movement of the species (i.e, partial migrants would be considered migrants).
+- "average_predation_richness_specialist" = estimated average richness of potential bird-eating specialist predators across the distributional range of the species.
+- "total_predation_richness_specialist" = estimated total richness of potential bird-eating specialist predators across the distributional range of the species.
 
 4. Missing data codes: NA
