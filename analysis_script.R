@@ -18,7 +18,8 @@ library(grid)
 library(cmdstanr)
 library(patchwork)
 
-cooperation_pred <- read.csv("~/My Drive/predation_cooperation/data/final_datasets/cooperation_pred.csv", row.names=1)
+# change path to where the file is stored
+cooperation_pred <- read.delim("~/My Drive/predation_cooperation/data/final_datasets/revision/cooperation_pred.txt")
 
 ### If running the model without migratory species ###
 # if  not, skip this line
@@ -63,6 +64,11 @@ cooperation_pred <- cooperation_pred[cooperation_pred$tip_label != "Tangara_larv
 sd_predation <- sd(cooperation_pred$average_predation_richness)
 mean_predation <- mean(cooperation_pred$average_predation_richness)
 cooperation_pred$average_predation_richness <- scale(cooperation_pred$average_predation_richness)
+# Use column "average_predation_richness_specialist" instead if using only bird-hunting specialists (appendix B)
+
+sd_predation_sp <- sd(cooperation_pred$average_predation_richness_specialist)
+mean_predation_sp <- mean(cooperation_pred$average_predation_richness_specialist)
+cooperation_pred$average_predation_richness_specialist <- scale(cooperation_pred$average_predation_richness_specialist)
 
 cooperation_pred$log_mass <- log(cooperation_pred$mass)
 sd_logmass <- sd(cooperation_pred$log_mass)
@@ -163,7 +169,7 @@ p <- ggplot(plot.dat, aes(x = inv_fun(x2.sim), y = bayes.c.eff.mean)) +
   geom_line(color = "black", alpha = 0.8, size = 2)+
   geom_ribbon(aes(ymin = bayes.c.eff.lower, ymax = bayes.c.eff.upper), fill = "black", alpha = 0.15)+
   ggtitle("High vegetation cover")+
-  xlab("Average predation richness")+
+  xlab("Average predator richness")+
   ylab("")+
   scale_y_continuous(breaks = seq(0, 2, by = 1))+
   coord_cartesian(clip = 'off')+
@@ -232,7 +238,7 @@ q <- ggplot(plot.dat, aes(x = inv_fun(x2.sim), y = bayes.c.eff.mean)) +
   geom_line(color = "black", alpha = 0.8, size = 2)+
   geom_ribbon(aes(ymin = bayes.c.eff.lower, ymax = bayes.c.eff.upper), fill = "black", alpha = 0.15)+
   ggtitle("Low vegetation cover")+
-  xlab("Average predation richness")+
+  xlab("Average predator richness")+
   ylab("")+
   scale_y_continuous(breaks = seq(0, 2, by = 1))+
   coord_cartesian(clip = 'off')+
@@ -264,7 +270,7 @@ df.posteriors <- dat_plot[,1:14]
 
 colnames(df.posteriors) <- c("Intercept 1",
                              "Intercept 2",
-                             "Average predation richness",
+                             "Average predator richness",
                              "Habitat openness",
                              "Log body mass",
                              "Log body mass ^2",
@@ -275,7 +281,7 @@ colnames(df.posteriors) <- c("Intercept 1",
                              "Mean temperature",
                              "Variance precipitation",
                              "Variance temperature",
-                             "Average predation richness * Habitat openness")
+                             "Average predator richness * Habitat openness")
 
 
 df.posteriors <- df.posteriors[,c(8,12,10,9,13,11,7,4,6,5,14,3,2,1)]
@@ -320,6 +326,7 @@ ggplot()+
         , axis.ticks.y = element_blank()
         , panel.grid.major = element_blank() 
         , panel.grid.minor = element_blank()
+        , axis.text=element_text(size=14)
   )
 
 
