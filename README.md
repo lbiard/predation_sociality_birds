@@ -55,7 +55,7 @@ This repository hosts data and R code for Bliard L., Dufour P., Griesser M, Cova
 - `Prum_Jetz_Cooney_9993.tree`
 - `distribution_overlap.txt`
 - `predation_allometry.txt`
-- `cooperation_pred.csv`
+- `cooperation_pred.txt`
 - `estimate_predator_richness.R`
 - `analysis_script.R`
 
@@ -65,7 +65,7 @@ Note that `output_ericson.nex` and `output_hackett.nex` are distributions of phy
 
 The dataset `predation_allometry.txt` and `distribution_overlap.txt` were used to estimate the average number of potential predators in sympatry with each focal species, using the R script `estimate_predator_richness.R`.
 
-The dataset `cooperation_pred.csv` was used alongside the phylognetic trees `Prum_Jetz_Cooney_9993.tree`, `output_ericson.nex`, and `output_hackett.nex`, to perform the analyses and produce the figures present in the article, using the R script `analysis_script.R`.
+The dataset `cooperation_pred.txt` was used alongside the phylognetic trees `Prum_Jetz_Cooney_9993.tree`, `output_ericson.nex`, and `output_hackett.nex`, to perform the analyses and produce the figures present in the article, using the R script `analysis_script.R`.
 
 ## METHODOLOGICAL INFORMATION
  
