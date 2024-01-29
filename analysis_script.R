@@ -85,6 +85,34 @@ sd_latitude <- sd(cooperation_pred$latitude_mean)
 mean_latitude <- mean(cooperation_pred$latitude_mean)
 cooperation_pred$latitude_mean <- scale(cooperation_pred$latitude_mean)
 
+# check correlation of predictor and produce table for appendix
+# correlation_data <- as.data.frame(cor(cbind(cooperation_pred$average_predation_richness, 
+#                         cooperation_pred$habitat, 
+#                         cooperation_pred$log_mass,
+#                         cooperation_pred$latitude_mean,
+#                         scale(cooperation_pred$Prcp.P), 
+#                         scale(cooperation_pred$Temp.P),
+#                         scale(cooperation_pred$Prcp.Mean), 
+#                         scale(cooperation_pred$Temp.Mean),
+#                         scale(cooperation_pred$Prcp.Var), 
+#                         scale(cooperation_pred$Temp.Var))))
+# colnames(correlation_data) <- c("Average predator richness", 
+#                     "Habitat openess", 
+#                     "Log body mass",
+#                     "Absolute latitude", 
+#                     "Predictability precipitation", 
+#                     "Predictability temperature", 
+#                     "Mean precipitation", 
+#                     "Mean temperature", 
+#                     "Variance precipitation", 
+#                     "Variance temperature")
+# rownames(correlation_data) <- colnames(correlation_data)
+# library(kableExtra)
+# kable(abcd, digits = 3) %>%
+#   kable_styling(latex_options = "striped", font_size = 10) %>%
+#   column_spec(1, bold = TRUE)
+  
+
 ####################
 #### Full model ####
 ####################
@@ -99,6 +127,7 @@ m2 <- brm(
     (1|gr(phylo, cov = phylo_mcct)), data = cooperation_pred, 
   family = cumulative("logit"), data2 = list(phylo_mcct = phylo_mcct),
   warmup = 1000, iter = 2000, thin = 1, chains = 3, seed = 25, cores = 3,
+  silent = 0,
   prior = c(
     set_prior("normal(0,2)", class = "b"),
     set_prior("normal(0,2)", class = "Intercept"),
