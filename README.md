@@ -2,6 +2,8 @@
 
 This repository hosts data and R code for Bliard L., Dufour P., Griesser M, Covas R. Family-living and cooperative breeding in birds are associated with the number of avian predators. Preprint on EcoEvoRxiv https://doi.org/10.32942/X2V31S 
 
+An archived version of this repository can be found on Zenodo https://doi.org/10.5281/zenodo.10580604 
+
 
 ## GENERAL INFORMATION
 
