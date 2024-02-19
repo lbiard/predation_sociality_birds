@@ -136,6 +136,27 @@ m2 <- brm(
 
 summary(m2)
 
+# check VIF and plot them
+library(performance)
+colinearity_result <- check_collinearity(m2)
+plot(colinearity_result) + 
+  ggtitle("Colinearity", subtitle = "")+
+  ylab("VIF")+
+  scale_x_discrete(labels=c("Average predator richness",
+                            "Average predator richness * Habitat openness",
+                            "Habitat openness",
+                            "Absolute latitude",
+                            "Log body mass",
+                            "Log body mass ^2",
+                            "Mean precipitation",
+                            "Predictability precipitation",
+                            "Variance precipitation",
+                            "Mean temperature",
+                            "Predictability temperature",
+                            "Variance temperature")) +
+  theme(plot.title = element_text(hjust = 0.5))+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
 # posterior predictive checks
 pp_check(m2, ndraws = 50)
 pp_check(m2, ndraws = 100, type = "stat_2d")
