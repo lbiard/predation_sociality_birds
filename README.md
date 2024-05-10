@@ -1,6 +1,6 @@
 # predation_sociality_birds
 
-This repository hosts data and R code for Bliard L., Dufour P., Griesser M, Covas R. Family-living and cooperative breeding in birds are associated with the number of avian predators. Preprint on EcoEvoRxiv https://doi.org/10.32942/X2V31S 
+This repository hosts data and R code for Bliard L., Dufour P., Griesser M, Covas R. (2024) Family-living and cooperative breeding in birds are associated with the number of avian predators. Evolution https://doi.org/10.1093/evolut/qpae058 
 
 An archived version of this repository can be found on Zenodo https://doi.org/10.5281/zenodo.10580604 
 
@@ -39,13 +39,13 @@ An archived version of this repository can be found on Zenodo https://doi.org/10
 
 1. Licenses/restrictions placed on the data: CC BY 4.0
 
-2. Links to publications that cite or use the data: https://doi.org/10.32942/X2V31S 
+2. Links to publications that cite or use the data: https://doi.org/10.1093/evolut/qpae058 
 
 3. Links to other publicly accessible locations of the data: None
 
 4. Was data derived from another source? Some of the data came from https://doi.org/10.1371/journal.pbio.2000483
 
-5. Recommended citation for this dataset: Bliard L., Dufour P., Griesser M, Covas R. (2024). Family-living and cooperative breeding in birds are associated with the number of avian predators [Data set].
+5. Recommended citation for this dataset: Bliard L., Dufour P., Griesser M, Covas R. (2024). Family-living and cooperative breeding in birds are associated with the number of avian predators [Data set] Zenodo https://doi.org/10.5281/zenodo.10580604
 
 
 
